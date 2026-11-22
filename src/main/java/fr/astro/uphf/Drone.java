@@ -11,7 +11,7 @@ public class Drone extends Engin{
     public boolean getcartographier(){ return this.cartographier;}
     public void setcartographier(boolean cartographier){ this.cartographier = cartographier;}
 
-    public void donnerab(Monde monde){
+    public void donnerAB(Monde monde){
         if (getcartographier() == true ){
             System.out.println("\n Drone " + getIdEngin() + " connue sous le nom de " + getNom() + " vous donne le point a de la carte  " + monde.getA() + " et vous donne le point b de la carte " + monde.getB() +".");
         }else{

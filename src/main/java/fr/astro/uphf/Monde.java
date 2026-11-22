@@ -3,8 +3,8 @@ package fr.astro.uphf;
 import java.util.Random;
 
 public class Monde{
-    private static final int LARGEUR = 100;
-    private static final int HAUTEUR = 100;
+    private static final int LARGEUR = 11;
+    private static final int HAUTEUR = 11;
 
     public enum terrain_zone {Plaine,Cratère,Falaise,Glace,};
     public enum Echantillon {Roche,Glace,Poussière,Masse};
