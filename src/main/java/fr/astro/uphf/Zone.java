@@ -2,7 +2,7 @@ package fr.astro.uphf;
 
 import java.util.Random;
 
-public class Zone{
+public class Zone extends Corps_celeste{
     private static final int LARGEUR = 11;
     private static final int HAUTEUR = 11;
 
@@ -16,7 +16,8 @@ public class Zone{
     private Engin typevehicule;
     private Echantillon typeechantillon;
     
-    public Zone(int idzone, terrain_zone typeterrain, int interetscientifique, Engin typevehicule, Echantillon typeechantillon, Random random){
+    public Zone(String nom, boolean atmosphere, float vents,int idzone, terrain_zone typeterrain, int interetscientifique, Engin typevehicule, Echantillon typeechantillon, Random random){
+        super(nom,atmosphere,vents);
         this.idzone = idzone;
         this.a= new Carte(LARGEUR, HAUTEUR, random);
         do {
