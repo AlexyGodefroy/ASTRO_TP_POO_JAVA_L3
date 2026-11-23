@@ -12,9 +12,9 @@ public class Rover extends Engin{
     public boolean getpreleve(){return this.preleve;}
     public void setpreleve( boolean preleve){ this.preleve = preleve;}
 
-    public void sortirechantillon(Monde monde){
+    public void sortirechantillon(Zone zone){
         if( getpreleve() == true){
-            System.out.println("\n Rover " + getIdEngin() + " connue sous le nom de " + getNom() + " à prélevé un échantillon de " + monde.getTypeechantillon() +".");
+            System.out.println("\n Rover " + getIdEngin() + " connue sous le nom de " + getNom() + " à prélevé un échantillon de " + zone.getTypeechantillon() +".");
         }else{
             System.out.println("\n Le prélevement est impossible.");
         }

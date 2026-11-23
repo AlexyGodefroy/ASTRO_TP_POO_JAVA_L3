@@ -2,7 +2,7 @@ package fr.astro.uphf;
 
 import java.util.Random;
 
-public class Monde{
+public class Zone{
     private static final int LARGEUR = 11;
     private static final int HAUTEUR = 11;
 
@@ -16,7 +16,7 @@ public class Monde{
     private Engin typevehicule;
     private Echantillon typeechantillon;
     
-    public Monde(int idzone, terrain_zone typeterrain, int interetscientifique, Engin typevehicule, Echantillon typeechantillon, Random random){
+    public Zone(int idzone, terrain_zone typeterrain, int interetscientifique, Engin typevehicule, Echantillon typeechantillon, Random random){
         this.idzone = idzone;
         this.a= new Carte(LARGEUR, HAUTEUR, random);
         do {
