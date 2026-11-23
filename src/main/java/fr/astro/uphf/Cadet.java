@@ -14,8 +14,9 @@ public class Cadet extends Personne{
     public void set_tuteur(Operateur tuteur){this.tuteur = tuteur;}
     public void setmission_reussies( int mission_reussies){ this.mission_reussies = mission_reussies;}
     public int getmission_reussies(){return mission_reussies;}
-    public void ejouterunemissionreussis(){ mission_reussies ++;}
 
+    public void ajouterunemissionreussis(){ mission_reussies ++;}
+    //public void deveniroperateur(){}
     public void afficherCadet(){
         super.afficherPersonne();
         System.out.println("Nom du tuteur : " + this.tuteur.getNom() );
