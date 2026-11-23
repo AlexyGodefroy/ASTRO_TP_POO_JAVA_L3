@@ -15,6 +15,7 @@ public abstract class Engin{
         this.nom = nom;
         this.position = position;
         this.etat = etat;
+        
     }
 
     public int getIdEngin(){return idEngin;}

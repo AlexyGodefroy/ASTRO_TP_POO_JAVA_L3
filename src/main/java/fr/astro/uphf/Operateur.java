@@ -59,7 +59,7 @@ public class Operateur extends Personne{
     public void setnumero_mission(int numero_mission){ this.numero_mission = numero_mission;}
 
 
-    //regarder pour faire la liste pour enumerer les competences si il y en a plusieurs
+    
     
     public void afficherOperateur(){
         super.afficherPersonne();
