@@ -8,13 +8,17 @@ public abstract class Personne{
     private String prenom;
     private Genre genre;
     private String tel; 
+    private static int prochainId = 1;
 
-    public Personne(int idPersonne, String nom, String prenom, Genre genre, String tel){
-        this.idPersonne = idPersonne;
+    public Personne(String nom, String prenom, Genre genre, String tel){
+        idPersonne = prochainId();
         this.nom = nom;
         this.prenom = prenom;
         this.genre = genre;
         this.tel = tel;
+    }
+    public static int prochainId(){
+        return prochainId ++;
     }
 
     public int getIdPersonne(){return idPersonne; }

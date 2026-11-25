@@ -2,30 +2,42 @@ package fr.astro.uphf;
 
 import java.util.random.RandomGenerator;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Operateur extends Personne{
     public enum Competences {Pilotage_rover, Pilotage_drone, Geologie, Telecommunication, Energie};
 
     private Competences competances;
+    private static int prochainId = 1;
     private int idOperateur;
     private int nbr_cadet;
     private int numero_mission;
     private ArrayList<Competences> listeCompetences = new ArrayList<>();
 
-    //defini un tableau ou on met les competance dans un tableau et défini random pour generer un nombre aléatoire
+    //defini un tableau où on met les competance dans un tableau et défini random pour generer un nombre aléatoire
     private static final Competences[] valeurs = Competences.values();
     private static final RandomGenerator random = RandomGenerator.getDefault();
 
     public Operateur(int idPersonne, String nom, String prenom, Genre genre, String tel, Competences competences,int idOperateur,int nbr_cadet,int numero_mission){
         //reprend les attributs de la classe mère
-        super(idPersonne, nom, prenom, genre, tel);
-        this.idOperateur = idOperateur;
+        super(nom, prenom, genre, tel);
+        this.idOperateur = genererIdOperateur();
         this.nbr_cadet = nbr_cadet;
         this.numero_mission =numero_mission;
         //génère la ou les compétance(s) aléatoire et les ajoutes à la liste de compétence de l'opérateur
         genererCompetencesAleatoires();
         this.competances = this.listeCompetences.get(0); 
     }
+
+    public Operateur(int idPersonne, String nom, String prenom, Genre genre, String tel, List<Competences> competencesHeritees) {
+        super(nom, prenom, genre, tel);
+        this.idOperateur = genererIdOperateur();
+        this.nbr_cadet = 0;
+        this.numero_mission = 0;
+        this.listeCompetences.addAll(competencesHeritees);
+    }
+
+    public static int genererIdOperateur() {return prochainId++;}
 
     //choisi une competance aleatoire parmis les competances dans l'enumeration Competances
     public static Competences comptetencealea(){
@@ -57,6 +69,7 @@ public class Operateur extends Personne{
     public int getnbr_cadet(){return nbr_cadet;}
     public int getnumero_mission(){return numero_mission;}
     public void setnumero_mission(int numero_mission){ this.numero_mission = numero_mission;}
+    public List<Competences> getListeCompetences() { return listeCompetences; }
 
 
     

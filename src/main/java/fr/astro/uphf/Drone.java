@@ -12,10 +12,11 @@ public class Drone extends Engin{
     public void setcartographier(boolean cartographier){ this.cartographier = cartographier;}
 
     public void donnerAB(Zone zone){
-        if (getcartographier() == true ){
+        if (zone.isCartographieRealisee() == false ){
             System.out.println("\n Drone " + getIdEngin() + " connue sous le nom de " + getNom() + " vous donne le point a de la carte  " + zone.getA() + " et vous donne le point b de la carte " + zone.getB() +".");
+            zone.setCartographieRealisee(true);
         }else{
-            System.out.println("\n L'acces au pont a et b de la carte esst impossible.");
+            System.out.println("\n L'acces au pont a et b de la carte est impossible ou déjà effectuer.");
         }
     }
 

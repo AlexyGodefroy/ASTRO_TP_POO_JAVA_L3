@@ -1,10 +1,12 @@
 package fr.astro.uphf;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Zone {
     private static final int LARGEUR = 11;
     private static final int HAUTEUR = 11;
+    private static final Scanner scanner = new Scanner(System.in);
 
     public enum Terrain_zone { Plaine, Cratère, Falaise, Glace }
     public enum Echantillon { Roche, Glace, Poussière }
@@ -41,6 +43,8 @@ public class Zone {
         this.typeechantillon = echantillons[random.nextInt(echantillons.length)];
     }
 
+    
+
 
     public int getPourcentageCompletion() {
         int total = 0;
@@ -63,6 +67,34 @@ public class Zone {
         }
         return false;
     }
+
+    public boolean passageprochainezone(Corps_celeste corps_celeste, Operateur operateur) {
+        int prochaine = corps_celeste.donnerprochainezone();
+        if (prochaine == -1) {
+            System.out.println("\n Aucune zone disponible.");
+            return false;
+        }
+
+        System.out.println("\n Pour passer à la prochaine zone, résolvez ceci :");
+        System.out.println("\n La prochaine zone est " + prochaine + " et votre zone est " + idzone);
+        System.out.println("\n Opérateur " + operateur.getidOperateur() + ", choisissez une opération entre + et - :");
+        String operation = scanner.next();
+        while (!operation.equals("+") && !operation.equals("-")) {
+            System.out.println("\n Opération invalide, tapez + ou - :");
+            operation = scanner.next();
+        }
+
+        System.out.println("\n Choisissez un nombre :");
+        while (!scanner.hasNextInt()) {
+            System.out.println("\n Ce n'est pas un nombre, recommencez :");
+            scanner.next();
+        }
+        int nbr = scanner.nextInt();
+        int resultat = operation.equals("+") ? idzone + nbr : idzone - nbr;
+
+        return effectuerCalculOperateur(resultat, prochaine);
+    }
+    // note a moi meme; la prochaine fois faire une fonction qui suppr de la liste la zone terminer et passe a la prochaine
 
     public int getIdzone() { return idzone; }
     public void setIdzone(int idzone) { this.idzone = idzone; }
